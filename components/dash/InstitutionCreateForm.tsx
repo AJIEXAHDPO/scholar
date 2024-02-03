@@ -41,7 +41,7 @@ const InstitutionCreateForm = ({onCreate}:{onCreate: Function}) => {
                 render={({ field }) => (
                     <FormItem>
                         <FormLabel>Name</FormLabel>
-                        <Input autoFocus autoComplete="off" aria-autocomplete="none" placeholder="Производственная практика" {...field} />
+                        <Input autoFocus autoComplete="off" aria-autocomplete="none" placeholder="СПбГУ" {...field} />
                     </FormItem>
                 )} />
             <Button type="submit">{institutionMutation.isLoading ? "Submitting..." : "Submit"}</Button>
