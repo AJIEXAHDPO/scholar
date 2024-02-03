@@ -54,7 +54,7 @@ model User {
   institutionId String?
   specialty     String?
 
-  role           Role             @default(STUDENT)
+  role           Role             @default(GUEST)
   accounts       Account[]
   sessions       Session[]
   apprenticeship Apprenticeship[]
@@ -79,6 +79,7 @@ model Apprenticeship {
   signed            Boolean? @default(false)
   report_signed     Boolean? @default(false)
   referral_signed   Boolean? @default(false)
+  status            Status   @default(WAITING)
 
   apprenticeship_type ApprenticeshipType? @relation(fields: [apprenticeshipTypeId], references: [id])
   user                User                @relation(fields: [user_id], references: [id], onDelete: Cascade)
@@ -97,6 +98,13 @@ enum Role {
   ADMINISTRATION
   CURATOR
   STUDENT
+  GUEST
+}
+
+enum Status {
+  WAITING
+  APPROVED
+  CLOSED
 }
 
 model Curator {
