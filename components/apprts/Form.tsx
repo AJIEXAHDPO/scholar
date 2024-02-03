@@ -38,7 +38,6 @@ import { useRouter } from "next/navigation";
 
 export default function ApprtsForm(props: {
   apprenticeshipTypes: ApprenticeshipTypes[];
-  session: any
 }) {
   const router = useRouter()
   const parent = useRef(null);
