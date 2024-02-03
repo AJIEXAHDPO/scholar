@@ -10,24 +10,23 @@ import { GetUser } from "@/server/schema/user";
 const profileInfo = ({ user }: { user: GetUser }) => {
     if (!user) return "Error loading user data try to log in again";
     useEffect(()=> console.log(user), [user])
-    return <Container className="justify-center">
-        <div className="flex flex-col w-max">
-            <Avatar className="w-28 h-28 my-6">
+    return <Container className="justify-center md:col-span-3">
+        <div className="flex flex-col max-w-80 gap-10">
+            <Avatar className="w-44 h-44 mx-auto mb-6">
                 <AvatarImage src={user.image as string}></AvatarImage>
                 <AvatarFallback>{user.username?.slice(0, 2).toUpperCase()}</AvatarFallback>
             </Avatar>
-            <div className="flex flex-row my-6 flex-nowrap">
-                <div className="pr-8 font-bold dark:text-slate-300 capitalize text-2xl">{user.display_name}</div>
+            <div className="flex flex-row flex-nowrap">
+                <div className="font-bold dark:text-slate-300 capitalize text-2xl">{user.display_name}</div>
             </div>
 
-            <ProfileMenuPoint name="Telegram id" value={user.telegram_id} />
             <ProfileMenuPoint name="Username" value={user.username} />
             <ProfileMenuPoint name="FIO" value={user.FIO} />
             <ProfileMenuPoint name="Phone" value={user.phone_number} />
             <ProfileMenuPoint name="Institution" value={user.institution?.name} />
             <ProfileMenuPoint name="Spetiality" value={user.specialty} />
 
-            <Link href="/dash/profile/edit" className="my-6 w-max">
+            <Link href="/dash/profile/edit" className="my-6 mx-auto w-max">
                 <Button variant="default" size="lg">Edit</Button>
             </Link>
         </div>
