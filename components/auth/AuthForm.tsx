@@ -20,7 +20,7 @@ const AuthForm = (props: {
     return <>
         <Heading title="Register" description={`Fill out these forms ${stage}/2`} />
         <div className="grid gap-4">
-            {stage === 1 && <ProfileEditForm institutions={props.institutions} user={props.user} callback={()=> setStage(2)}/>}
+            {stage === 1 && <ProfileEditForm institutions={props.institutions} user={props.user} />}
             {stage === 2 && <ApprtsForm apprenticeshipTypes={props.apprenticeshipTypes} />}
         </div>
     </>
