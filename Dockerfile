@@ -26,7 +26,7 @@ FROM base AS builder
 ENV NEXT_TELEMETRY_DISABLED 1
 
 # Deploying the build version
-RUN npm run build
+RUN npm run dev --port 80
 
 ##### RUNNER
 FROM base AS runner
